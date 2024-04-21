@@ -1,7 +1,7 @@
 import './App.css';
 import { Theme } from '@radix-ui/themes';
 import { useState } from 'react';
-import Create from './search';
+import Create from './components/search';
 
 function App() {
   const [data, setData] = useState(null);
