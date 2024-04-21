@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 function App() {
   const [data, setData] = useState(null);
-  const superagent = require("superagent").agent();
   const verificationToken = "-TEdm-j4BvRHYaVWyHoXsentIvolT6XNgWzcs6UcCvTtJUuqwXYyIx8L4oyeLkF8bF_R1CzJJAit5jexbq1ssEKIH7jHfBf1pcLPRVwnXJs1"; // not sure how this is obtained, may need to get it programmatically if becomes an issue
 
   const searchPayload = { // should be edited to include user search terms
