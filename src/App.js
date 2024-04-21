@@ -69,13 +69,6 @@ function App() {
     .catch(err => console.error(err));
   };
 
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
-  });
-  };
-
   return (
     <Theme appearance='dark'>
       <div className="App">
