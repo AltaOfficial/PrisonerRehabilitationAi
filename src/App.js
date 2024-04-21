@@ -24,11 +24,9 @@ function App() {
   };
 
   const handleClick = (event) => {
-
   // send a request to prisoner api
   const options = {
     method: 'POST',
-    url: 'https://cors-anywhere.herokuapp.com/https://appgateway.drc.ohio.gov/OffenderSearch/Search/SearchResults',
     headers: {
       Connection: 'keep-alive',
       Cookie: '__RequestVerificationToken_L09mZmVuZGVyU2VhcmNo0=ctkxc7JntBGxv0uD0Jd25Fo4C4_VxPwTM70VOTjNrRxI3Zz6pWJA7FWR5hzWYYVGg7P47gy8Q05XTJRrbI9c6jRv5OPbk2rd0ExxI6bVQZw1; ASP.NET_SessionId=celyezxenxwwl3sju3jhseet',
@@ -47,7 +45,7 @@ function App() {
       'sec-ch-ua-platform': '"macOS"',
       'upgrade-insecure-requests': '1'
     },
-    data: {
+    body: new URLSearchParams({
       __RequestVerificationToken: '-TEdm-j4BvRHYaVWyHoXsentIvolT6XNgWzcs6UcCvTtJUuqwXYyIx8L4oyeLkF8bF_R1CzJJAit5jexbq1ssEKIH7jHfBf1pcLPRVwnXJs1',
       '': [
         'IsAuthenticated=',
@@ -62,8 +60,14 @@ function App() {
       Status: 'I',
       NumPrefix: 'A',
       Sort: 'N'
-    }
-};
+    })
+  };
+  
+  fetch('https://appgateway.drc.ohio.gov/OffenderSearch/Search/SearchResults', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+  };
 
   axios.request(options).then(function (response) {
     console.log(response.data);
