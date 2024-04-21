@@ -44,7 +44,7 @@ function App() {
     "referrerPolicy": "strict-origin-when-cross-origin",
     "body": `__RequestVerificationToken=${verificationToken}&IsAuthenticated=&LastName=&FirstName=derrick&CntyCommitment=&CntyResidential=&ZipCode=&Status=I&PbDate=&NumPrefix=A&OffNumber=&Sort=N`,
     "method": "POST",
-    "mode": "no-cors",
+    "mode": "cors",
     "credentials": "include"
     }).then(response => response.text()).then(response => {
       console.log("text: " + response);
