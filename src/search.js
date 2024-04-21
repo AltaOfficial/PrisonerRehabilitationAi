@@ -1,8 +1,9 @@
 const Create = () => {
+
     return (
         <div className="Create">        
         <h3>Offender Search<br /></h3>
-        <hr />
+        <hr /> 
 
         <form>
             <label>First Name</label>
