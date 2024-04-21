@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width">
+        <title>Offender Search</title>
+
+        <script src="/OffenderSearch/bundles/modernizr?v=wBEWDufH_8Md-Pbioxomt90vm6tJN2Pyy9u9zHtWsPo1"></script>
+    </head>
+    <body>
+
+        <div class="container body-content">
+
+            <div class="visible-xs">
+                <div class="row">
+                    <div class="col-xs-10">
+                        <h3>Offender Search<br /><small>Ohio Department of Rehabilitation and Correction</small></h3>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div>
+
+                <div class="row visible-sm visible-md visible-lg">
+                    <div class="col-xs-5 table-bordered">
+                        <form action="/OffenderSearch/Search/SearchResults" id="lgForm" method="post">				<div class="form-horizontal" id="lgDiv">
+                            <input name="__RequestVerificationToken" type="hidden" value="6vhz1ff5DcUzCtyBa4o5fz_12emVpadwaq9EPz2BpTZLBT97tTk3smtJLh_g4zhd1FTg0YbmvNLDHyVBJu1GHMrdb28yQhBG-awwdh53HZI1" />
+
+                            <input id="IsAuthenticated" name="IsAuthenticated" type="hidden" value="" />
+                            <br />
+
+                            <div class="form-group">
+                                <label class="col-xs-5 control-label" for="LastName">Last Name</label>
+                                <div class="col-xs-7">
+                                    <input data-val="true" data-val-length="The Last Name is too long" data-val-length-max="20" id="LastName" name="LastName" style="width: 135px" type="text" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-5 control-label" for="FirstName">First Name</label>
+                                <div class="col-xs-7">
+                                    <input data-val="true" data-val-length="The First Name is too long" data-val-length-max="20" id="FirstName" name="FirstName" style="width: 135px" type="text" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <label class="col-xs-5 control-label" for="Sort">Sort Results By</label>
+                            <div class="col-xs-7">
+                                <select id="Sort" name="Sort" style="width: 134px"><option value="N">Name</option>
+                                    <option value="U">Number</option>
+                                    <option value="S">Status</option>
+                                </select>
+                            </div>
+                        </div>
+                            <br />
+
+                            <div class="text-center">
+                                <input type="submit" value="Search" class="btn btn-default" width="64" />
+                                &nbsp;&nbsp;
+                                <input type="button" value="Reset" class="btn btn-default" width="64" onclick="javascript: resetForm(lgForm);" />
+                            </div>
+                    </div>
+    </body>
+</html>
