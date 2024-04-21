@@ -1,11 +1,9 @@
-import React from 'react'
-
 const Create = () => {
     return (
+        <div className="Create">        
         <h3>Offender Search<br /></h3>
         <hr />
 
-        <div className="Create">
         <form>
             <label>First Name</label>
             <input type="text" required />
@@ -24,6 +22,7 @@ const Create = () => {
             <button>Reset</button>
         </form>
         </div>
+    )
 }
 
-//export default Create
+export default Create
