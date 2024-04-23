@@ -3,9 +3,11 @@ const app = express();
 const requests = require('request')
 require("dotenv").config();
 const apiRoute = require('./api/api');
+const cors = require("cors");
 
 // middleware
 app.use(express.json());
+app.use(cors);
 
 app.get("/", (req, res) => {
     res.send("This is the backend");

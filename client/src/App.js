@@ -15,7 +15,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("localhost:5000/api", {
+    fetch("https://prisoner-rehabilitation-ai-api.vercel.app/api", {
       method: "GET"
     }).then(response => response.json())
     .then((data) => {
