@@ -1,5 +1,5 @@
 import './App.css';
-import { Theme } from '@radix-ui/themes';
+import { Theme, Button } from '@radix-ui/themes';
 import { useEffect, useState } from 'react';
 import Create from './components/search';
 
@@ -27,7 +27,7 @@ function App() {
     <Theme appearance='dark'>
       <div className="App">
         {data && <p>{ data.toString() }</p>}
-        <button onClick={handleClick}>Send Request</button>
+        <Button onClick={handleClick}>Send Request</Button>
         <Create />
       </div>
     </Theme>
