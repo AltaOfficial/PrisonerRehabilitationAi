@@ -21,6 +21,21 @@ const options = {
     body: new URLSearchParams(searchPayload).toString()
   };
 
+  const searchPayload = { // should be edited to include user search terms
+    __RequestVerificationToken: verificationToken, 
+    IsAuthenticated: "",
+    LastName: "",
+    FirstName: firstName,
+    CntyCommitment: "",
+    CntyResidential: "",
+    ZipCode: "",
+    Status: "I", // I for incararated
+    PbDate: "",
+    NumPrefix: "A",
+    OffNumber: "",
+    Sort: "N"
+  };
+
 const useFetch = (searchPayload) => {
     fetch('https://appgateway.drc.ohio.gov/OffenderSearch/Search/SearchResults', options)
     .then(response => {

@@ -1,6 +1,10 @@
 {
   "name": "prisoner-rehabilitation-ai",
   "version": "0.1.0",
+  "options": {
+    "allowedHosts": ["localhost", ".localhost"],
+    "proxy": "https://localhost:5000/"
+  },
   "private": true,
   "dependencies": {
     "@radix-ui/themes": "^3.0.2",
