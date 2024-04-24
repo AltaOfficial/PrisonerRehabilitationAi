@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const requests = require('request')
 require("dotenv").config();
 const apiRoute = require('./api/api');
 const cors = require("cors");
@@ -8,7 +7,8 @@ const cors = require("cors");
 // middleware
 app.use(express.json());
 app.use(cors({
-    origin: "*"
+    origin: ["*"],
+    credentials: true
 }));
 
 app.get("/", (req, res) => {

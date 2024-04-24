@@ -1,6 +1,6 @@
 const express = require('express');
-
 const router = express.Router();
+const requests = require('request');
 
 router.get('/', (req, res) => {
     res.send("stuff");
@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 router.post("/fetch", (req, res) => {
     console.log("received post request");
-    console.log(req)
+    console.log(req.body)
 
     const searchPayload = { // should be edited to include user search terms
         __RequestVerificationToken: "ctkxc7JntBGxv0uD0Jd25Fo4C4_VxPwTM70VOTjNrRxI3Zz6pWJA7FWR5hzWYYVGg7P47gy8Q05XTJRrbI9c6jRv5OPbk2rd0ExxI6bVQZw1", 

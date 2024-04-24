@@ -1,4 +1,32 @@
-const Create = () => {
+import { Button } from '@radix-ui/themes';
+import { useState } from 'react';
+
+const Search = (props) => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [sortType, setSortType] = useState("Name");
+
+    const searchForInmates = () => {
+        // send a request to our backend api
+          fetch("/api/fetch", {
+            method: "POST",
+            mode: "cors",
+            body: JSON.stringify({
+              firstName: firstName,
+              lastName: lastName,
+              sortType: sortType
+            })
+          }).then(response => response.text())
+          .then(data => {
+            props.setData(data);
+          });
+    };
+
+    const resetFields = () => {
+        setFirstName("");
+        setLastName("");
+        setSortType("Name");
+    }
 
     return (
         <div className="Create">        
@@ -8,17 +36,17 @@ const Create = () => {
 
                 <form>
                     <label>First Name</label>
-                    <input type="text" required />
+                    <input type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
 
                     <br/>
 
                     <label>Last Name</label>
-                    <input type="text" required />
+                    <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
 
                     <br/>
 
                     <label>Sort Results By</label>
-                    <select>
+                    <select required value={sortType} onChange={(e) => setSortType(e.target.value)}>
                         <option value="Name">Name</option>
                         <option value="Number">Number</option>
                         <option value="Status">Status</option>
@@ -26,12 +54,12 @@ const Create = () => {
 
                     <br/>
 
-                    <button>Search</button>
-                    <button>Reset</button>
+                    <Button onClick={() => searchForInmates()}>Search</Button>
+                    <Button onClick={resetFields}>Reset</Button>
                 </form>
             </div>
         </div>
     )
 }
 
-export default Create
+export default Search
