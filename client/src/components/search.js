@@ -6,9 +6,10 @@ const Search = (props) => {
     const [lastName, setLastName] = useState("");
     const [sortType, setSortType] = useState("Name");
 
-    const searchForInmates = () => {
-        // send a request to our backend api
-        fetch("https://prisoner-rehabilitation-ai.vercel.app/api/fetch", {
+    // send a request to our backend api
+    const searchForInmates = (event) => {
+        event.preventDefault();
+        fetch("https://prisoner-rehabilitation-ai-api.vercel.app/api/fetch", {
         method: "POST",
         mode: "cors",
         body: JSON.stringify({
@@ -34,7 +35,7 @@ const Search = (props) => {
                 <h3 className="italic">Offender Search<br /></h3>
                 <hr className="mb-4"/> 
 
-                <form>
+                <form onSubmit={(e) => searchForInmates(e)}>
                     <label>First Name</label>
                     <input type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
 
