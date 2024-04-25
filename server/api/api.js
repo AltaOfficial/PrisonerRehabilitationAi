@@ -72,10 +72,9 @@ router.post("/fetch", (req, res) => {
          requests.get(getOptions, (error, response, body) => {
             console.log(response);
             console.log(response.statusCode);
-            res.send(response);
+            res.send(response.body);
         });
     });
-    res.send(req.body);
 });
 
 router.get("/clear", (req, res) => {
