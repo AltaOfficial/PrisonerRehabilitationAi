@@ -7,14 +7,11 @@ router.get('/', (req, res) => {
 });
 
 router.post("/fetch", (req, res) => {
-    console.log("received post request");
-    console.log(req.body)
-
     const searchPayload = { // should be edited to include user search terms
-        __RequestVerificationToken: "ctkxc7JntBGxv0uD0Jd25Fo4C4_VxPwTM70VOTjNrRxI3Zz6pWJA7FWR5hzWYYVGg7P47gy8Q05XTJRrbI9c6jRv5OPbk2rd0ExxI6bVQZw1", 
+        __RequestVerificationToken: "ctkxc7JntBGxv0uD0Jd25Fo4C4_VxPwTM70VOTjNrRxI3Zz6pWJA7FWR5hzWYYVGg7P47gy8Q05XTJRrbI9c6jRv5OPbk2rd0ExxI6bVQZw1", // this is a token that may expire in the future
         IsAuthenticated: "",
-        LastName: "",
-        FirstName: "derick",
+        LastName: req.body.lastName,
+        FirstName: req.body.firstName,
         CntyCommitment: "",
         CntyResidential: "",
         ZipCode: "",
@@ -22,7 +19,7 @@ router.post("/fetch", (req, res) => {
         PbDate: "",
         NumPrefix: "A",
         OffNumber: "",
-        Sort: "N"
+        Sort: req.body.sortType[0] // Gets the first letter of the sort type, since thats all thats needed
     };
 
     const postOptions = {
@@ -70,15 +67,14 @@ router.post("/fetch", (req, res) => {
           }
     };
 
-    // requests.jar();
-    // requests.post(postOptions, (error, response, body) => {
-    //     requests.get(getOptions, (error, response, body) => {
-    //         console.log(response);
-    //         console.log(response.statusCode);
-    //     });
-    // });
-
-    res.send(req.body);
+    //requests.jar(); used to store cookies after each request, maybe not needed
+    requests.post(postOptions, (error, response, body) => { // TODO: handle any errors that may occur
+         requests.get(getOptions, (error, response, body) => {
+            console.log(response);
+            console.log(response.statusCode);
+            res.send(response);
+        });
+    });
 });
 
 router.get("/clear", (req, res) => {
