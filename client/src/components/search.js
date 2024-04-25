@@ -8,18 +8,18 @@ const Search = (props) => {
 
     const searchForInmates = () => {
         // send a request to our backend api
-          fetch("/api/fetch", {
-            method: "POST",
-            mode: "cors",
-            body: JSON.stringify({
-              firstName: firstName,
-              lastName: lastName,
-              sortType: sortType
-            })
-          }).then(response => response.text())
-          .then(data => {
+        fetch("https://prisoner-rehabilitation-ai.vercel.app/api/fetch", {
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            sortType: sortType
+        })
+        }).then(response => response.text())
+        .then(data => {
             props.setData(data);
-          });
+        });
     };
 
     const resetFields = () => {
@@ -54,7 +54,7 @@ const Search = (props) => {
 
                     <br/>
 
-                    <Button onClick={() => searchForInmates()}>Search</Button>
+                    <Button onClick={searchForInmates}>Search</Button>
                     <Button onClick={resetFields}>Reset</Button>
                 </form>
             </div>
