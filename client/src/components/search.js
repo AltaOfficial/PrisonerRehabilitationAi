@@ -8,10 +8,18 @@ const Search = (props) => {
 
     // send a request to our backend api
     const searchForInmates = (event) => {
+        console.log(JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            sortType: sortType
+        }));
         event.preventDefault();
         fetch("https://prisoner-rehabilitation-ai-api.vercel.app/api/fetch", {
         method: "POST",
         mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
             firstName: firstName,
             lastName: lastName,
@@ -27,7 +35,7 @@ const Search = (props) => {
         setFirstName("");
         setLastName("");
         setSortType("Name");
-    }
+    };
 
     return (
         <div className="Create">        

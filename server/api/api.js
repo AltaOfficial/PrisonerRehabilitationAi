@@ -15,7 +15,7 @@ router.post("/fetch", (req, res) => {
         CntyCommitment: "",
         CntyResidential: "",
         ZipCode: "",
-        Status: "I", // I for incararated
+        Status: "I", // I for incarcerated
         PbDate: "",
         NumPrefix: "A",
         OffNumber: "",
@@ -67,7 +67,7 @@ router.post("/fetch", (req, res) => {
           }
     };
 
-    //requests.jar(); used to store cookies after each request, maybe not needed
+    requests.jar(); // used to store cookies after each request, may not be needed
     requests.post(postOptions, (error, response, body) => { // TODO: handle any errors that may occur
          requests.get(getOptions, (error, response, body) => {
             console.log(response);
@@ -75,6 +75,7 @@ router.post("/fetch", (req, res) => {
             res.send(response);
         });
     });
+    res.send(req.body);
 });
 
 router.get("/clear", (req, res) => {
