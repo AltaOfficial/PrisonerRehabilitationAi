@@ -85,7 +85,7 @@ router.get("/clear", (req, res) => {
 });
 
 router.get("/python", (req, res) => {
-    const childPython = spawn("python", [__dirname + "/ai.py"]);
+    let childPython = spawn("python", ["--version"]);
     childPython.stdout.on("data", data => res.send(data));
     childPython.stderr.on("data", data => res.send(data));
 
