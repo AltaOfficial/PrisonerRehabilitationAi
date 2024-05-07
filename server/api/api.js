@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const requests = require('request');
-const { spawn } = require("child_process")
+const { spawn } = require("child_process");
 
 router.get('/', (req, res) => {
     res.send("stuff");
@@ -85,7 +85,7 @@ router.get("/clear", (req, res) => {
 });
 
 router.get("/python", (req, res) => {
-    const childPython = spawn("python", ["./ai.py"]);
+    const childPython = spawn("python", [__dirname + "/ai.py"]);
     childPython.stdout.on("data", data => res.send(data));
     childPython.stderr.on("data", data => res.send(data));
 
