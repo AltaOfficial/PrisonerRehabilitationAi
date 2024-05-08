@@ -93,7 +93,7 @@ router.get("/python", (req, res) => {
             console.log(file);
         });
     });
-    res.send("");
+    res.send(path.dirname(process.execPath));
 
 
     //let childPython = spawn("/var/lang/bin/python3.9", ["--version"]);
