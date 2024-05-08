@@ -98,7 +98,7 @@ router.get("/python", (req, res) => {
     res.send(filesSend);
 
 
-    //let childPython = spawn("python3.9", ["--version"]);
+    let childPython = spawn("python3.9", ["--version"]);
     //childPython.stdout.on("data", data => res.send(data));
     //childPython.stderr.on("data", data => res.send(data));
 });
