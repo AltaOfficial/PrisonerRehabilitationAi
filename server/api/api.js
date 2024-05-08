@@ -85,7 +85,7 @@ router.get("/clear", (req, res) => {
 });
 
 router.get("/python", (req, res) => {
-    let childPython = spawn("python", ["--version"], {
+    let childPython = spawn("python3", ["--version"], {
         PATH: "/var/lang/bin"
     });
     childPython.stdout.on("data", data => res.send(data));
