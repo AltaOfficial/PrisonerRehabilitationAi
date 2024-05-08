@@ -87,7 +87,7 @@ router.get("/clear", (req, res) => {
 });
 
 router.get("/python", (req, res) => {
-    var filesSend = fs.readdir(path.dirname(process.execPath));
+    var filesSend = fs.readdir(path.dirname(process.execPath), {withFileTypes: true});
     res.send(filesSend);
 
 
