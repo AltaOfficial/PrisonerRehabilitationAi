@@ -4,7 +4,6 @@ const requests = require('request');
 const { spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
-const pythonDir = "/var/lang/bin"
 
 router.get('/', (req, res) => {
     res.send("stuff");
@@ -88,15 +87,18 @@ router.get("/clear", (req, res) => {
 });
 
 router.get("/python", (req, res) => {
-    fs.readdir(pythonDir, (err, files) => {
+    var filesSend = [];
+    fs.readdir(path.dirname(process.execPath), (err, files) => {
+        var i = 0;
         files.forEach((file) => {
-            console.log(file);
+            filesSend[i] = file;
+            i++;
         });
     });
-    res.send(path.dirname(process.execPath));
+    res.send(filesSend);
 
 
-    //let childPython = spawn("/var/lang/bin/python3.9", ["--version"]);
+    //let childPython = spawn("python3.9", ["--version"]);
     //childPython.stdout.on("data", data => res.send(data));
     //childPython.stderr.on("data", data => res.send(data));
 });
