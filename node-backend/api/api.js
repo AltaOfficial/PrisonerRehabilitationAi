@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const requests = require('request');
+const { spawn } = require("child_process");
+const path = require("path");
 
 router.post("/fetch", (req, res) => {
     const searchPayload = { // should be edited to include user search terms
@@ -86,6 +88,8 @@ router.get("/python", (req, res) => {
         console.log("body: ", body);
         res.send(body);
     });
+
+    let child = spawn("", )
 
 });
 
