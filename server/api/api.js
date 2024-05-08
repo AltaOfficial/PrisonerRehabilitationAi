@@ -80,7 +80,7 @@ router.get("/clear", (req, res) => {
 });
 
 router.get("/python", (req, res) => {
-    requests("https://127.0.0.1:4000/flask", (error, response, body) => {
+    requests("http://127.0.0.1:4000/flask", (error, response, body) => {
         console.error("error: ", error);
         console.log("Status Code: ", response.statusCode);
         console.log("body: ", body);
