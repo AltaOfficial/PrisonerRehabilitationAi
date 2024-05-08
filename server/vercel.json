@@ -17,7 +17,7 @@
      },
      {
         "src": "/api/server",
-        "dest": "api/server.py"
+        "dest": "/api/server.py"
      }
     ]
  }
