@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const requests = require('request');
-const { spawn } = require("child_process");
-const fs = require("fs");
-const path = require("path");
 
 router.get('/', (req, res) => {
     res.send("stuff");
@@ -90,10 +87,6 @@ router.get("/python", (req, res) => {
     var filesSend = fs.readdir(path.dirname(process.execPath), {withFileTypes: true});
     res.send(filesSend);
 
-
-    //let childPython = spawn("python3.9", ["--version"]);
-    //childPython.stdout.on("data", data => res.send(data));
-    //childPython.stderr.on("data", data => res.send(data));
 });
 
 module.exports = router;

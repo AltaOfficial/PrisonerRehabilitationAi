@@ -11,7 +11,7 @@ app.use(cors({
     origin: "*"
 }));
 
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
     res.send("This is the backend");
 });
 
