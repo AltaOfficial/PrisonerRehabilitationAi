@@ -91,8 +91,9 @@ router.get("/python", (req, res) => {
     fs.readdir(pythonDir, (err, files) => {
         files.forEach((file) => {
             console.log(file);
-        })
+        });
     });
+    res.send("");
 
 
     //let childPython = spawn("/var/lang/bin/python3.9", ["--version"]);
