@@ -14,10 +14,6 @@
      {
          "src": "/(.*)",
          "dest": "/"
-     },
-     {
-        "src": "/api/server",
-        "dest": "/api/server.py"
      }
     ]
 }
