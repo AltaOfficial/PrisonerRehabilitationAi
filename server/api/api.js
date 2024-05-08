@@ -85,12 +85,9 @@ router.get("/clear", (req, res) => {
 });
 
 router.get("/python", (req, res) => {
-    let childPython = spawn("python3", ["--version"], {
-        PATH: "/var/lang/bin"
-    });
+    let childPython = spawn("/var/lang/bin/python3.9.exe", ["--version"]);
     childPython.stdout.on("data", data => res.send(data));
     childPython.stderr.on("data", data => res.send(data));
-
 });
 
 module.exports = router;
